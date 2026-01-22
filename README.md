@@ -218,7 +218,7 @@ Basically, while each request is slower, more requests are being processed simul
 
 ---
 
-## 5. Memory Scaling
+## 4. Memory Scaling
 
 | Parallel | Peak Memory | Delta from p=1 |
 |----------|-------------|----------------|
@@ -252,7 +252,7 @@ With addtional overhead, rounds to ~250MB per slot. Matches observed memory usag
 
 ---
 
-## 6. Prompt Size Observations
+## 5. Prompt Size Observations
 
 ### Large ≈ XLarge Performance
 
@@ -320,7 +320,7 @@ Both produce similar output lengths (~500 tokens). The xlarge prompt's longer in
 
 ---
 
-## 9. KV Cache Deep Dive
+## 6. KV Cache Deep Dive
 
 ### What is KV Cache?
 
