@@ -1,6 +1,10 @@
 # LLM Inference Benchmark
 
-A LLM inference gateway demonstrating observability and benchmarking.
+A tiny LLM inference benchmark project. I built this to learn about LLM inferencing performance characteristics, especially around parallelism and context window size. 
+
+This project uses [Ollama](https://ollama.com/) as the LLM backend, specifically the `qwen2.5:7b-instruct` model, `FastAPI` for the gateway, and `Prometheus` + `Grafana` for observability. It can be run on Apple Silicon (M1/M2/M4) Macs.
+
+See the benchmark results and my learnings in the [Benchmark Results and Findings](#benchmark-results-and-findings) section below.
 
 ## Quick Start
 
