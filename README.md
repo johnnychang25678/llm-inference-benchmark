@@ -275,51 +275,6 @@ Both produce similar output lengths (~500 tokens). The xlarge prompt's longer in
 
 ---
 
-## Raw Data
-
-### TTFT (p50) by Configuration
-
-| Config | small | medium | large | xlarge |
-|--------|-------|--------|-------|--------|
-| c1_p1 | 57ms | 59ms | 61ms | 62ms |
-| c4_p1 | 327ms | 8,876ms | 20,293ms | 20,149ms |
-| c1_p2 | 57ms | 60ms | 61ms | 61ms |
-| c4_p2 | 240ms | 5,003ms | 11,070ms | 11,117ms |
-| c1_p4 | 57ms | 59ms | 60ms | 61ms |
-| c4_p4 | 120ms | 131ms | 118ms | 119ms |
-
-### Latency (p50) by Configuration
-
-| Config | small | medium | large | xlarge |
-|--------|-------|--------|-------|--------|
-| c1_p1 | 148ms | 2,866ms | 6,936ms | 6,754ms |
-| c4_p1 | 422ms | 11,759ms | 27,017ms | 26,843ms |
-| c1_p2 | 149ms | 3,128ms | 6,963ms | 6,930ms |
-| c4_p2 | 396ms | 9,929ms | 22,127ms | 22,137ms |
-| c1_p4 | 149ms | 3,048ms | 6,858ms | 6,741ms |
-| c4_p4 | 390ms | 9,864ms | 21,277ms | 21,339ms |
-
-### Tokens/sec (mean) by Configuration
-
-| Config | small | medium | large | xlarge |
-|--------|-------|--------|-------|--------|
-| c1_p1 | 88.7 | 83.8 | 74.4 | 75.9 |
-| c4_p1 | 85.9 | 75.0 | 75.1 | 76.4 |
-| c1_p2 | 87.9 | 77.1 | 73.1 | 74.6 |
-| c4_p2 | 51.5 | 46.4 | 46.2 | 46.2 |
-| c1_p4 | 87.3 | 77.0 | 75.5 | 76.6 |
-| c4_p4 | 30.2 | 24.7 | 24.2 | 24.1 |
-
-### Memory (MB) by Parallel Setting
-
-| Parallel | Peak Memory |
-|----------|-------------|
-| p=1 | 5,138 - 5,265 |
-| p=2 | 5,382 - 5,514 |
-| p=4 | 5,827 - 5,976 |
-
----
-
 ## 6. KV Cache Deep Dive
 
 ### What is KV Cache?
@@ -364,3 +319,48 @@ Key behaviors:
 1. **Chat conversations**: System prompt + history is cached, only new user message needs processing
 2. **Batch processing same prompt**: Running identical prompt multiple times
 3. **Shared prefix workloads**: Multiple prompts with common system instructions
+
+---
+
+## Raw Data
+
+### TTFT (p50) by Configuration
+
+| Config | small | medium | large | xlarge |
+|--------|-------|--------|-------|--------|
+| c1_p1 | 57ms | 59ms | 61ms | 62ms |
+| c4_p1 | 327ms | 8,876ms | 20,293ms | 20,149ms |
+| c1_p2 | 57ms | 60ms | 61ms | 61ms |
+| c4_p2 | 240ms | 5,003ms | 11,070ms | 11,117ms |
+| c1_p4 | 57ms | 59ms | 60ms | 61ms |
+| c4_p4 | 120ms | 131ms | 118ms | 119ms |
+
+### Latency (p50) by Configuration
+
+| Config | small | medium | large | xlarge |
+|--------|-------|--------|-------|--------|
+| c1_p1 | 148ms | 2,866ms | 6,936ms | 6,754ms |
+| c4_p1 | 422ms | 11,759ms | 27,017ms | 26,843ms |
+| c1_p2 | 149ms | 3,128ms | 6,963ms | 6,930ms |
+| c4_p2 | 396ms | 9,929ms | 22,127ms | 22,137ms |
+| c1_p4 | 149ms | 3,048ms | 6,858ms | 6,741ms |
+| c4_p4 | 390ms | 9,864ms | 21,277ms | 21,339ms |
+
+### Tokens/sec (mean) by Configuration
+
+| Config | small | medium | large | xlarge |
+|--------|-------|--------|-------|--------|
+| c1_p1 | 88.7 | 83.8 | 74.4 | 75.9 |
+| c4_p1 | 85.9 | 75.0 | 75.1 | 76.4 |
+| c1_p2 | 87.9 | 77.1 | 73.1 | 74.6 |
+| c4_p2 | 51.5 | 46.4 | 46.2 | 46.2 |
+| c1_p4 | 87.3 | 77.0 | 75.5 | 76.6 |
+| c4_p4 | 30.2 | 24.7 | 24.2 | 24.1 |
+
+### Memory (MB) by Parallel Setting
+
+| Parallel | Peak Memory |
+|----------|-------------|
+| p=1 | 5,138 - 5,265 |
+| p=2 | 5,382 - 5,514 |
+| p=4 | 5,827 - 5,976 |
